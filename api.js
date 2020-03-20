@@ -18,7 +18,7 @@ $(document).ready(function(){
         $("span").text(arr[0]+" "+res);
     });
     
-    $.getJSON( "http://worldtimeapi.org/api/ip", function( data ){
+    $.getJSON( "https://worldtimeapi.org/api/ip", function( data ){
         var ip = data.client_ip;
         var url = "https://ipapi.co/"+ip+"/json";
         console.log(ip+"--"+url);
