@@ -2,132 +2,158 @@
 <html lang="en">
 
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="refresh" content="600">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="api.js"></script>
-<title>Covid 2019 stats</title>
-<link rel="icon" href="house-IN.svg" type=" image/svg+xml">    
-</head> 
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="refresh" content="6000">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="api.js"></script>
+  <title>Covid 2019 stats</title>
+  <link rel="icon" href="house-IN.svg" type=" image/svg+xml">
+</head>
 <style>
-    div.fixed {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 200px;
-        font-size: 0.775em;
-        background-color: hsl(0, 0%, 90%);
-    }
+  div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    font-size: 0.775em;
+    background-color: hsl(0, 0%, 90%);
+  }
 </style>
+
 <body>
-    
-<div class="container">
-<h3 class="text-center m-3"><b>Coronavirus</b> Covid 2019 Global Stats</h3>
-<div class="row m-3">
 
-<div class="col-sm border rounded">
-<h6 class="text-center">Confirmed</h6>    
-<h1 id="confirmed" class="text-center"></h1>
-<h5 id="confirmedPercentage" class="text-center"></h5>     
-</div>
+  <div class="container">
+    <h3 class="text-center m-3"><b>Coronavirus</b> Covid 2019 Global Stats</h3>
 
-<div class="col-sm border rounded">
-<h6 class="text-center">Recovered</h6>        
-<h1 id="recovered" class="text-center"></h1>
-<h5 id="recoveredPercentage" class="text-center"></h5>    
-</div>
+    <div class="card-group">
+      <div class="card text-center backred">
+        <div class="card-body">
+          <h5 class="card-title titlered">Confirmed</h5>
+          <h1 id="confirmed" class="text-danger"></h1>
+          <p class="card-text"></p><small id="confirmedPercentage" class="titlered">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card text-center backblue">
+        <div class="card-body">
+          <h5 class="card-title titleblue">Active</h5>
+          <h1 id="active" class="text-center text-primary"></h1>
+          <p class="card-text"></p><small id="activePercentage" class="titleblue">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card text-center backgreen">
+        <div class="card-body">
+          <h5 class="card-title titlegreen">Recovered</h5>
+          <h1 id="recovered" class="text-center text-success"></h1>
+          <p class="card-text"></p><small id="recoveredPercentage" class="titlegreen">Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </div>
+      <div class="card text-center backgray">
+        <div class="card-body">
+          <h5 class="card-title titlegray">Deaths</h5>
+          <h1 id="deaths" class="text-center text-secondary"></h1>
+          <p class="card-text"></p><small id="deathsPercentage" class="titlegray">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
 
-<div class="col-sm border rounded">
-<h6 class="text-center">Deaths</h6>        
-<h1 id="deaths" class="text-center"></h1>
-<h5 id="deathsPercentage" class="text-center"></h5>
-</div>
+    <h3 class="text-center m-3">Covid 2019 <img id="cflag" src="" alt="waiting..."> <strong class="text-uppercase" id="ipcountryName"> country</strong>'s Stats
+    </h3>
 
-</div>
 
-<h3 class="text-center ">Covid 2019 <strong class="text-uppercase" id="ipcountryName">country</strong>'s Stats</h3>    
-    
-<div class="row m-3">
 
-<div class="col-sm border rounded">
-<h6 class="text-center">Confirmed</h6>    
-<h1 class="text-center" id="ipcountryConfirmed"></h1>
-<h5 class="text-center" id="ipcountryConfirmedpre"></h5>     
-</div>
+    <div class="card-group">
+      <div class="card text-center backred">
+        <div class="card-body">
+          <h5 class="card-title titlered">Confirmed</h5>
+          <h1 id="ipcountryConfirmed" class="text-danger"></h1>
+          <p class="card-text"></p><small id="ipcountryConfirmedpre" class="titlered">Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </div>
+      <div class="card text-center backblue">
+        <div class="card-body">
+          <h5 class="card-title titleblue">Active</h5>
+          <h1 id="ipcountryActive" class="text-center text-primary"></h1>
+          <p class="card-text"></p><small id="ipcountryActivepre" class="titleblue">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card text-center backgreen">
+        <div class="card-body">
+          <h5 class="card-title titlegreen">Recovered</h5>
+          <h1 id="ipcountryRecovered" class="text-center text-success"></h1>
+          <p class="card-text"></p><small id="ipcountryRecoveredper" class="titlegreen">Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </div>
+      <div class="card text-center backgray">
+        <div class="card-body">
+          <h5 class="card-title titlegray">Deaths</h5>
+          <h1 id="ipcountryDeaths" class="text-center text-secondary"></h1>
+          <p class="card-text"></p><small id="ipcountryDeathspre" class="titlegray">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
 
-<div class="col-sm border rounded">
-<h6 class="text-center">Recovered</h6>        
-<h1 class="text-center" id="ipcountryRecovered"></h1>
-<h5 class="text-center" id="ipcountryRecoveredper"></h5>    
-</div>
+    </div>
 
-<div class="col-sm border rounded">
-<h6 class="text-center">Deaths</h6>        
-<h1 class="text-center" id="ipcountryDeaths"></h1>
-<h5 class="text-center" id="ipcountryDeathspre"></h5>
-</div>
+    <h3 class="text-center m-3"><b>Coronavirus</b> Covid 2019 Country-Wise Stats</h3>
 
-<div class="col-sm border rounded">
-<h6 class="text-center">Active</h6>        
-<h1 class="text-center" id="ipcountryActive"></h1>
-<h5 class="text-center" id="ipcountryActivepre"></h5>
-</div>    
-    
+    <div class="table-responsive-sm">
+      <table class="table table-borderless table-sm table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">Country</th>
+            <th class="text-center titlered backred">Confirmed</th>
+            <th class="text-center titleblue backblue">active</th>
+            <th class="text-center titlegreen backgreen">Recovered</th>
+            <th class="text-center titlegray backgray">deaths</th>
+          </tr>
+        </thead>
+        <tbody id="CountryStat">
+        </tbody>
+      </table>
+    </div>
 
-</div>
+    <div class="text-center">
+      <img src="12 - 1.png" class="img-fluid rounded my-3" alt="Responsive image">
+    </div>
 
-<div class="text-center">
-  <img src="12 - 1.png" class="img-fluid rounded" alt="Responsive image">    
-</div>
 
-   
+    <h3 class="text-center m-3"><b>Coronavirus</b> Covid 2019 Daily-Wise Stats</h3>
 
-<h3 class="text-center m-3"><b>Coronavirus</b> Covid 2019 Daily-Wise Stats</h3>
+    <div class="table-responsive-sm">
+      <table class="table table-borderless table-sm table-hover">
+        <thead>
+          <tr>
+            <th rowspan="2" class="text-center">Date</th>
+            <th colspan="3" class="backred titlered text-center">Confirmed</th>
+            <th colspan="3" class="backgray titlegray text-center">Deaths</th>
+          </tr>
+          <tr>
+            <th class="backred titlered text-center">Other Countries</th>
+            <th class="backred titlered text-center">China</th>
+            <th class="backred titlered text-center">Total</th>
+            <th class="backgray titlegray text-center">Other Countries</th>
+            <th class="backgray titlegray text-center">China</th>
+            <th class="backgray titlegray text-center">Total</th>
+          </tr>
+        </thead>
+        <tbody id="dailyStat">
+        </tbody>
+      </table>
+    </div>
+
   
-<div class="table-responsive-sm">       
-<table class="table table-bordered table-sm">
-<thead class="thead-light">
-<tr>
-<th>Date</th>
-<th>China</th>
-<th>Other Countries</th>
-<th>Confirmed</th>
-<th>Confirmed &Delta;</th>     
-<th>Recovered</th>
-<th>Recovered &Delta;</th>    
-</tr>
-</thead>
-<tbody id="dailyStat">  
-</tbody>
-</table>
-</div>    
-    
-<h3 class="text-center m-3"><b>Coronavirus</b> Covid 2019 Country-Wise Stats</h3>
 
-<div class="table-responsive-sm">       
-<table class="table table-bordered table-sm">
-<thead class="thead-light">
-<tr>
-<th>Country/Region</th>
-<th>State/Province</th>
-<th>Confirmed</th>
-<th>Recovered</th>
-<th>deaths</th>
-<th>active</th>
-</tr>
-</thead>
-<tbody id="CountryStat">  
-</tbody>
-</table>
-</div>
-    
-</div>
-<div class="fixed">LastUpdate: <span></span></div>
+
+  </div>
+  <div class="fixed">LastUpdate: <span></span></div>
 </body>
 
 </html>

@@ -1,0 +1,28 @@
+.backred{
+    background-color: #ffe6e6;
+}
+.titlered{
+    color:#990000
+}
+.backblue{
+    background-color: #e6f0ff;
+}
+.titleblue{
+    color:#003380
+}
+.backgreen{
+    background-color: #d6f5dd;
+}
+.titlegreen{
+    color:#145222
+}
+.backgray{
+    background-color: #f2f2f2;
+}
+.titlegray{
+    color:#404040
+}
+.deltaconfrim{
+    font-size: 0.725em;
+    color: #ff8080;
+}
